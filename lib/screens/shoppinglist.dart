@@ -20,7 +20,7 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
 
   Future<void> _loadShoppingList() async {
     final response = await _supabase
-        .from('shopping')
+        .from('shoplist')
         .select()
         .order('created_at', ascending: false);
     setState(() {
@@ -30,7 +30,7 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
 
   Future<void> _addItem(Map<String, dynamic> newItem) async {
     try {
-      await _supabase.from('shopping').insert(newItem);
+      await _supabase.from('shoplist').insert(newItem);
       await _loadShoppingList();
     } catch (e) {
       print('Error adding item: $e');
@@ -66,14 +66,7 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
               itemBuilder: (context, index) {
                 final item = _shoppingList[index];
                 return ListTile(
-                  leading: item['image_url'] != null
-                      ? Image.network(
-                          item['image_url'],
-                          width: 50,
-                          height: 50,
-                          fit: BoxFit.cover,
-                        )
-                      : Icon(Icons.image),
+                  leading: Icon(Icons.shopping_bag),
                   title: Text(item['product']),
                   subtitle: Text(
                       'Brand: ${item['brand']}, Quantity: ${item['qt']}, Supermarket: ${item['supermarket']}'),

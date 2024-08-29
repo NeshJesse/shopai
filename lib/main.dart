@@ -1,12 +1,19 @@
 // main.dart
 import 'package:flutter/material.dart';
-import 'package:shopai/screens/shopping.dart';
+import 'package:shopai/screens/shoppinglist.dart';
 import 'package:shopai/screens/features.dart'; // Make sure to import your HomeScreen here
 import 'package:shopai/baselayout.dart';
 import 'package:shopai/screens/splash.dart';
 import 'package:shopai/screens/account.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://jhfoovgozkmbehzlzbrz.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpoZm9vdmdvemttYmVoemx6YnJ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQ4Mzk1MjAsImV4cCI6MjA0MDQxNTUyMH0.wEMpBmDxtipulse43fHHHAHIIt_EA8Up-LM64unDNqE',
+  );
   runApp(MyApp());
 }
 
@@ -63,9 +70,11 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return BaseLayout(
       appBar: AppBar(
-        title: Text('Shopping List Page'),
+        title: Text('SakaPrice'),
       ),
-      child: Text('Main Page Content'),
+      child: Center(
+        child: ListView(),
+      ),
     );
   }
 }

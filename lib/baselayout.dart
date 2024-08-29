@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class BaseLayout extends StatelessWidget {
   final PreferredSizeWidget? appBar;
+  final Widget? body;
   final Widget child;
   final Widget? floatingActionButton;
-  final Widget? body;
 
   BaseLayout(
-      {this.appBar, required this.child, this.floatingActionButton, this.body});
+      {this.appBar, this.body, required this.child, this.floatingActionButton});
 
   @override
   Widget build(BuildContext context) {

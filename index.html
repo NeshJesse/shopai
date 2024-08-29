@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SakaPrice - Your AI Shopping Assistant</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SakaPrice - Your AI Shopping Assistant</title>
+    
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="SakaPrice is an AI-powered shopping assistant that helps you find the best products at the best prices based on your preferences and location.">
+        <meta name="keywords" content="AI shopping assistant, personalized shopping, budget shopping, smart shopping app">
+        <meta name="author" content="SakaPrice">
+        <meta name="robots" content="index, follow">
+    
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.sakaprice.com/">
+        <meta property="og:title" content="SakaPrice - Shop Smarter with AI">
+        <meta property="og:description" content="Find the best products at the best prices with our AI-powered shopping assistant. Personalized recommendations based on your preferences and location.">
+        <meta property="og:image" content="https://www.sakaprice.com/og-image.jpg">
+    
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://www.sakaprice.com/">
+        <meta property="twitter:title" content="SakaPrice - Shop Smarter with AI">
+        <meta property="twitter:description" content="Find the best products at the best prices with our AI-powered shopping assistant. Personalized recommendations based on your preferences and location.">
+        <meta property="twitter:image" content="https://www.sakaprice.com/twitter-image.jpg">
+    
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="https://www.sakaprice.com/favicon.png">
+    
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 <body class="bg-gray-100 font-sans">
-    <header class="bg-blue-600 text-white p-4">
+    <header class="bg-green-500 text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">SakaPrice</h1>
             <nav>
@@ -35,19 +59,77 @@
     </header>
 
     <main>
-        <section id="hero" class="bg-blue-500 text-white py-20">
-            <div class="container mx-auto text-center px-4">
-                <h2 class="text-4xl font-bold mb-4">Shop Smarter with AI</h2>
-                <p class="text-xl mb-8">Your personal shopping assistant that finds the best products at the best prices.</p>
-                <a href="#download" class="bg-white text-blue-600 py-2 px-6 rounded-full font-bold hover:bg-blue-100 transition duration-300 mb-8 inline-block">Get Started</a>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4 mt-8">
-                    <img src="assets/screen.png" alt="Screenshot 1" class="w-full md:w-1/3 rounded-lg shadow-lg">
-                    <img src="assets/screen.png" alt="Screenshot 2" class="w-full md:w-1/3 rounded-lg shadow-lg">
-                    <img src="assets/screen.png" alt="Screenshot 3" class="w-full md:w-1/3 rounded-lg shadow-lg">
+<section id="hero" class="bg-green-500 text-white py-20">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center text-center md:text-left">
+        <div class="md:w-1/2">
+            <h2 class="text-4xl font-bold mb-4">Shop Smarter with AI</h2>
+            <p class="text-xl mb-8">Your personal shopping assistant that helps you find the products on your shopping list at the best prices across local supermarkets.</p>
+            <a href="#download" class="bg-white text-blue-600 py-2 px-6 rounded-full font-bold hover:bg-blue-100 transition duration-300 mb-8 inline-block">Get Started</a>
+        </div>
+        <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+            <img src="assets/list.png" alt="Shopping Assistant" class="w-full md:w-1/2 rounded-lg shadow-lg">
+        </div>
+    </div>
+</section>
+
+<section id="how-it-works" class="bg-gray-200 py-16">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+        <div class="flex flex-col space-y-8">
+            <!-- Step 1 -->
+                        <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-left">
+                <div class="md:w-1/2 bg-white p-6 rounded-lg shadow-md mb-8 md:mb-0">
+                    <div class="text-3xl font-bold text-green-500 mb-4">1</div>
+                    <p class="text-xl">Signup and set up your account</p>
+                    <br>
+                    <p>Set where you usually shop at e.g. Naivas</p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="assets/account.png" alt="Step 2" class="w-full md:w-1/2 rounded-lg shadow-lg">
                 </div>
             </div>
-        </section>
-        
+           
+            <!-- Step 2 -->
+ <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                <div class="md:w-1/2 bg-white p-6 rounded-lg shadow-md mb-8 md:mb-0">
+                    <div class="text-3xl font-bold text-green-500 mb-4">2</div>
+                    <p class="text-xl">Enter your shopping list and preferences </p>
+                    <p class="text-green-500">You can even enter the brand name e.g. Unga, Ndovu, 2kg,</p>
+                    <br>
+                    <p>You can either enter the list manually or take a picture of your physical one</p>
+                    <br>
+                    <p class="text-2xl text-green-500">Then submit</p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="assets/list.png" alt="Step 1" class="w-full md:w-1/2 rounded-lg shadow-lg">
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex flex-col md:flex-row items-center text-center md:text-left">
+                <div class="md:w-1/2 bg-white p-6 rounded-lg shadow-md mb-8 md:mb-0">
+                    <div class="text-3xl font-bold text-green-500 mb-4">3</div>
+                    <p class="text-xl">Receive a curated result</p>
+                    <br>
+                    <p>The results are returned based on the supermarket you choose e.g. Naivas or quickmart</p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="assets/cart.png" alt="Step 3" class="w-full md:w-1/2 rounded-lg shadow-lg">
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex flex-col md:flex-row-reverse items-center text-center md:text-left">
+                <div class="md:w-1/2 bg-white p-6 rounded-lg shadow-md mb-8 md:mb-0">
+                    <div class="text-3xl font-bold text-blue-600 mb-4">4</div>
+                    <p class="text-xl">Receive a curated list of products</p>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="assets/step3.png" alt="Step 4" class="w-full md:w-1/2 rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
         <section id="features" class="py-16">
             <div class="container mx-auto px-4">
@@ -69,25 +151,7 @@
             </div>
         </section>
 
-        <section id="how-it-works" class="bg-gray-200 py-16">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-3xl font-bold text-blue-600 mb-4">1</div>
-                        <p>Enter your shopping list and preferences</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-3xl font-bold text-blue-600 mb-4">2</div>
-                        <p>Our AI analyzes your inputs</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                        <div class="text-3xl font-bold text-blue-600 mb-4">3</div>
-                        <p>Receive a curated list of products</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <section id="download" class="py-16">
             <div class="container mx-auto text-center px-4">

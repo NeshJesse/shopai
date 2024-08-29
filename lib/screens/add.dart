@@ -36,73 +36,90 @@ class _AddItemScreenState extends State<AddItemScreen> {
       appBar: AppBar(
         title: Text('Add Item'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Product Name'),
-                onSaved: (value) => _productName = value!,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a product name';
-                  }
-                  return null;
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Card(
+              margin: EdgeInsets.all(10.0),
+              child: ListTile(
+                leading: Icon(Icons.camera_alt),
+                title: Text('Snap the Picture'),
+                onTap: () {
+                  // Add your onTap functionality here
                 },
               ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Brand'),
-                onSaved: (value) => _brand = value!,
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a brand';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Price'),
-                keyboardType: TextInputType.number,
-                onSaved: (value) => _price = double.parse(value!),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a price';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(labelText: 'Quantity'),
-                keyboardType: TextInputType.number,
-                onSaved: (value) => _quantity = int.parse(value!),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter a quantity';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
                 children: [
-                  ElevatedButton(
-                    onPressed: _saveItem,
-                    child: Text('Save'),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Product Name'),
+                    onSaved: (value) => _productName = value!,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter a product name';
+                      }
+                      return null;
+                    },
                   ),
-                  ElevatedButton(
-                    onPressed: () => Navigator.of(context).pop(),
-                    child: Text('Cancel'),
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Brand'),
+                    onSaved: (value) => _brand = value!,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter a brand';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Price'),
+                    keyboardType: TextInputType.number,
+                    onSaved: (value) => _price = double.parse(value!),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter a price';
+                      }
+                      return null;
+                    },
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Quantity'),
+                    keyboardType: TextInputType.number,
+                    onSaved: (value) => _quantity = int.parse(value!),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter a quantity';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: _saveItem,
+                        child: Text('Save'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: Text('Cancel'),
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.red),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
