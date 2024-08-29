@@ -4,13 +4,14 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This flutter project is for my PLP DART Specialization.It aims to help kenyan consumers skip lines and orderthe goods in advance.A supermarket staff will shop on thier behalf and they will pay a small fee for the service when they arrive to collect their goods
 
-A few resources to get you started if this is your first Flutter project:
+## BUILT WITH
+THE APP IS built usinf flutter and it primarily runs on linux os platform
+The backend is built using SUPABASE a free to use Database
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## HOW IT WORKS
+1. SIGNUP
+2. UPLOAD UR SHOPPING LIST'
+3. CHECKOUT
+4. PRESENT THE GENERATED PROOF OF ORDER TO THE SHOPPING PERSONEL AT THE SUPERMARKET
