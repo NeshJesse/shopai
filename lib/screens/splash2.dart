@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../main.dart';
-import 'signup.dart';
+import 'signup2.dart';
 
 class Splasher extends StatefulWidget {
   const Splasher({Key? key}) : super(key: key);
