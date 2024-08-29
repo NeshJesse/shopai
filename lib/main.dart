@@ -1,6 +1,6 @@
 // main.dart
 import 'package:flutter/material.dart';
-import 'package:shopai/screens/shoppinglist.dart';
+import 'package:shopai/screens/shopping.dart';
 import 'package:shopai/screens/features.dart'; // Make sure to import your HomeScreen here
 import 'package:shopai/baselayout.dart';
 import 'package:shopai/screens/splash.dart';
