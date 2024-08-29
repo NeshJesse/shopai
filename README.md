@@ -1,4 +1,5 @@
 # Sakaprice Your personal shopping assistant
+WEBSITE: https://sakaprice.vercel.app
 
 This flutter project is for my PLP DART Specialization.It aims to help kenyan consumers skip lines and orderthe goods in advance.A supermarket staff will shop on thier behalf and they will pay a small fee for the service when they arrive to collect their goods
 
