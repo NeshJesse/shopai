@@ -1,14 +1,13 @@
 # shopai
 
-A new Flutter project.
-
-## Getting Started
-
 This flutter project is for my PLP DART Specialization.It aims to help kenyan consumers skip lines and orderthe goods in advance.A supermarket staff will shop on thier behalf and they will pay a small fee for the service when they arrive to collect their goods
 
+## THE FUTURE/COMING SOON
+The app aims to be a shopping ai agent that can order stuff on ur behalf in the Kenyan consumer space
+
 ## BUILT WITH
-THE APP IS built usinf flutter and it primarily runs on linux os platform
-The backend is built using SUPABASE a free to use Database
+1.THE APP IS built usinf flutter and it primarily runs on linux os platform
+2. The backend is built using SUPABASE a free to use Database
 
 ## HOW IT WORKS
 1. SIGNUP
