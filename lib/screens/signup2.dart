@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopai/main.dart';
+import 'package:shopai/screens/account.dart';
 import 'package:shopai/screens/login.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -42,7 +43,7 @@ class _SignupPageState extends State<SignupPage> {
         // Navigate to the main page after successful sign-up
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => MainPage()),
+          MaterialPageRoute(builder: (context) => UserBioPage()),
         );
       }
     } catch (error) {
