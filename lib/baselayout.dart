@@ -1,7 +1,7 @@
-// baselayout.dart
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-class BaseLayout extends StatelessWidget {
+class BaseLayout extends StatefulWidget {
   final PreferredSizeWidget? appBar;
   final Widget? body;
   final Widget child;
@@ -9,6 +9,41 @@ class BaseLayout extends StatelessWidget {
 
   BaseLayout(
       {this.appBar, this.body, required this.child, this.floatingActionButton});
+
+  @override
+  _BaseLayoutState createState() => _BaseLayoutState();
+}
+
+class _BaseLayoutState extends State<BaseLayout> {
+  String _username = '';
+  String _email = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserData();
+  }
+
+  Future<void> _fetchUserData() async {
+    try {
+      final user = Supabase.instance.client.auth.currentUser;
+      if (user != null) {
+        final response = await Supabase.instance.client
+            .from('users')
+            .select('username, email')
+            .eq('id', user.id)
+            .single();
+
+        setState(() {
+          _username = response['username'] ?? 'Unknown';
+          _email = response['email'] ?? 'Unknown';
+        });
+      }
+    } catch (error) {
+      // Handle the error appropriately in a real app
+      print('Error fetching user data: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +56,9 @@ class BaseLayout extends StatelessWidget {
               currentAccountPicture: CircleAvatar(
                 backgroundImage: AssetImage("assets/monlo.png"),
               ),
-              accountName: Text("Nehemiah"),
-              accountEmail: Text("neshjesse@gmail.com"),
+              accountName: Text(_username),
+              accountEmail: Text(_email),
             ),
-            // Drawer menu items for different task categories
             ListTile(
               title: Text("Home"),
               leading: Icon(Icons.home),
@@ -49,9 +83,9 @@ class BaseLayout extends StatelessWidget {
           ],
         ),
       ),
-      appBar: appBar,
-      body: child,
-      floatingActionButton: floatingActionButton,
+      appBar: widget.appBar,
+      body: widget.child,
+      floatingActionButton: widget.floatingActionButton,
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -65,7 +99,6 @@ class BaseLayout extends StatelessWidget {
         ],
         selectedItemColor: Colors.amber[800],
         unselectedItemColor: Colors.black,
-        // Implement navigation logic in the parent widget to control navigation
         onTap: (index) {
           switch (index) {
             case 0:
