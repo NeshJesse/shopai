@@ -101,9 +101,12 @@ class _MainPageState extends State<MainPage> {
         child: ListView(
           children: [
             ListTile(
-              leading: Icon(Icons.account_circle, size: 50),
+              leading:
+                  Icon(Icons.account_circle, size: 50, color: Colors.white),
               title: Text(_username ?? 'Loading...'),
               subtitle: Text(_email ?? 'Loading...'),
+              tileColor: Colors.lightBlueAccent,
+              textColor: Colors.white,
             ),
             // Add other widgets here as needed
           ],

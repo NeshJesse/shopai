@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopai/main.dart';
+import 'package:shopai/screens/login.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SignupPage extends StatefulWidget {
@@ -109,6 +110,27 @@ class _SignupPageState extends State<SignupPage> {
                 ),
                 child: Text('Sign Up'),
               ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Login()),
+                  );
+                  // Implement email/password signup logic here
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  textStyle: TextStyle(
+                    fontSize: 18,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+                child: Text('Login Instead'),
+              ),
             ],
           ),
         ),
@@ -116,5 +138,3 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
-
-
