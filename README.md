@@ -1,7 +1,17 @@
-# shopai
+# Sakaprice Your personal shopping assistant
 
 This flutter project is for my PLP DART Specialization.It aims to help kenyan consumers skip lines and orderthe goods in advance.A supermarket staff will shop on thier behalf and they will pay a small fee for the service when they arrive to collect their goods
 
+## Features
+1. Upload ur shopping list
+2. Quick checkout
+3. Shopping as A SERVICE
+4. Secure User authentication
+ ## Coming soon
+    1. Agentic experience
+    2. Price comparison once integrated with a products database e.g. Naivas real time prices
+    3. Payment Integration
+   
 ## THE FUTURE/COMING SOON
 The app aims to be a shopping ai agent that can order stuff on ur behalf in the Kenyan consumer space
 
