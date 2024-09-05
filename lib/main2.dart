@@ -72,7 +72,7 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: Text('SakaPrice'),
       ),
-      child: Center(
+      children: Center(
         child: ListView(),
       ),
     );
