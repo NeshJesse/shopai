@@ -3,7 +3,9 @@ import 'package:shopai/baselayout.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'dart:convert';
 import 'additem.dart';
-import 'package:shopai/screens/checkout.dart';
+
+import 'package:shopai/screens/checks.dart';
+import 'package:shopai/screens/lists.dart';
 
 class ShoppingListScreen extends StatefulWidget {
   @override
@@ -154,103 +156,63 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
             ),
           ),
           Expanded(
-            child: ListView(children: [
-              ExpansionTile(
-                leading: Icon(
-                  Icons.list_alt_outlined,
-                  color: Colors.black,
-                ),
-                initiallyExpanded: true,
-                title: Text(
-                  'Current Shopping Lists',
-                  style: TextStyle(
+            child: ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    margin: EdgeInsets.all(10.0),
                     color: Colors.black,
-                  ),
-                ),
-                children: [
-                  ..._shoppingList.map(
-                    (item) => Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Card(
-                          margin: EdgeInsets.all(10.0),
-                          color: Colors.black,
-                          child: ListTile(
-                            leading:
-                                Icon(Icons.shopping_bag, color: Colors.white),
-                            title: Text(
-                              item['product'],
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            subtitle: Text(
-                              'Brand: ${item['brand']}, Quantity: ${item['qt']}, Supermarket: ${item['supermarket']}',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            trailing: Text(
-                              '\$${item['price']}',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          )),
+                    child: ListTile(
+                      leading:
+                          Icon(Icons.list_alt_outlined, color: Colors.white),
+                      title: Text(
+                        'Current Shopping Lists',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () {
+                        // Navigate to listScreen when tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ListScreen(shoppingLists: _shoppingList),
+                          ),
+                        );
+                      },
                     ),
                   ),
-                ],
-              ),
-            ]),
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: ListView(
               children: [
-                ExpansionTile(
-                  leading: Icon(
-                    Icons.history_outlined,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    margin: EdgeInsets.all(10.0),
                     color: Colors.black,
-                  ),
-                  title: Text('Checkout History'),
-                  children: [
-                    if (_checkoutHistory.isNotEmpty) ...[
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Checkout History',
-                        ),
+                    child: ListTile(
+                      leading:
+                          Icon(Icons.history_outlined, color: Colors.white),
+                      title: Text(
+                        'Checkout History',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      ..._checkoutHistory.map(
-                        (checkout) => Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Card(
-                            margin: EdgeInsets.all(10.0),
-                            color: Colors.black,
-                            child: ListTile(
-                              leading: Icon(Icons.receipt),
-                              title: Text(
-                                'Checkout on ${DateTime.parse(checkout['checkout_date']).toLocal()}',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              subtitle: Text(
-                                'Total: \$${checkout['total_amount'].toStringAsFixed(2)}',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              trailing: Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                              ),
-                              tileColor: Colors.black,
-                              onTap: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => CheckoutDetailScreen(
-                                      checkoutData: checkout,
-                                    ),
-                                  ),
-                                );
-                                // TODO: Navigate to a detailed view of this checkout
-                              },
-                            ),
+                      onTap: () {
+                        // Navigate to checks.dart when tapped
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                ChecksPage(checkoutHistory: _checkoutHistory),
                           ),
-                        ),
-                      ),
-                      Divider(),
-                    ],
-                  ],
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ],
             ),
