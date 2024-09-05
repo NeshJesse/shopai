@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopai/screens/checkout2.dart';
+import 'package:shopai/screens/checkout.dart';
 
 class ChecksPage extends StatelessWidget {
   final List<Map<String, dynamic>> checkoutHistory;

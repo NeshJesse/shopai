@@ -115,7 +115,7 @@ class _PlanListScreenState extends State<PlanListScreen> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             subtitle: Text(
-              'Total: \$${plan['total_amount'].toStringAsFixed(2)}',
+              'Total: \Ksh${plan['total_amount'].toStringAsFixed(2)}',
               style: TextStyle(color: Theme.of(context).primaryColor),
             ),
             children: [
@@ -128,7 +128,7 @@ class _PlanListScreenState extends State<PlanListScreen> {
                       'Brand: ${item['brand']}, Quantity: ${item['qt']}, Supermarket: ${item['supermarket']}',
                     ),
                     trailing: Text(
-                      '\$${item['price'].toStringAsFixed(2)}',
+                      '\KSh${item['price'].toStringAsFixed(2)}',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).primaryColor),

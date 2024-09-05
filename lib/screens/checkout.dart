@@ -39,13 +39,28 @@ class CheckoutDetailScreen extends StatelessWidget {
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   final item = items[index];
-                  return ListTile(
-                    title: Text(item['product']),
-                    subtitle: Text(
-                        'Brand: ${item['brand']}, Quantity: ${item['qt']}, Supermarket: ${item['supermarket']}'),
-                    trailing: Text('\$${item['price']}'),
+                  return Card(
+                    margin: EdgeInsets.all(10.0),
+                    color: Colors.black,
+                    child: ListTile(
+                      title: Text(item['product']),
+                      textColor: Colors.white,
+                      subtitle: Text(
+                          'Brand: ${item['brand']}, Quantity: ${item['qt']}, Supermarket: ${item['supermarket']}'),
+                      trailing: Text('\$${item['price']}'),
+                    ),
                   );
                 },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('Proceed'),
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 50),
+                ),
               ),
             ),
           ],
