@@ -2,6 +2,9 @@
 WEBSITE: https://sakaprice.vercel.app
 
 This flutter project is for my PLP DART Specialization.It aims to help kenyan consumers skip lines and orderthe goods in advance.A supermarket staff will shop on thier behalf and they will pay a small fee for the service when they arrive to collect their goods
+## REQUIREMENTS
+1.It runs on linux platform but any other platform can be added
+2.It needs an online wifi connection
 
 ## Features
 1. Upload ur shopping list
