@@ -32,14 +32,14 @@ class _SplashState extends State<Splash> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            'assets/images.jpeg',
+            'assets/shopping.jpeg',
             fit: BoxFit.cover,
           ),
           Text(
-            'SakaPrice',
+            'QuickShopa',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),

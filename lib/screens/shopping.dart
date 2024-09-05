@@ -133,7 +133,7 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
   Widget build(BuildContext context) {
     return BaseLayout(
       appBar: AppBar(
-        title: Text('Saka Price'),
+        title: Text('QuickShopa'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddItemScreen,

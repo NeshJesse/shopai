@@ -73,6 +73,7 @@ flutter:
       - assets/splasher.jpeg
       - assets/monlo.png
       - assets/images.jpeg
+      - assets/shopping.jpeg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

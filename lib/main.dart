@@ -98,7 +98,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return BaseLayout(
       appBar: AppBar(
-        title: Text('SakaPrice'),
+        title: Text('QuickShopa'),
       ),
       children: Center(
         child: Column(
