@@ -3,6 +3,7 @@ import 'package:shopai/baselayout.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'dart:convert';
 import 'additem.dart';
+import 'package:shopai/screens/checkout.dart';
 
 class ShoppingListScreen extends StatefulWidget {
   @override
@@ -41,10 +42,38 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
     });
   }
 
+  /*
   Future<void> _addItem(Map<String, dynamic> newItem) async {
     try {
+      // Get the current user's ID
+    final user = _supabase.auth.currentUser;
       await _supabase.from('shoplist').insert(newItem);
       await _loadShoppingList();
+    } catch (e) {
+      print('Error adding item: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error adding item. Please try again.')),
+      );
+    }
+  }
+   */
+  Future<void> _addItem(Map<String, dynamic> newItem) async {
+    try {
+      // Get the current user's ID
+      final user = _supabase.auth.currentUser;
+
+      if (user != null) {
+        // Add user_id to the new item data
+        newItem['user_id'] = user.id;
+
+        // Insert the new item with the user_id into the shoplist table
+        await _supabase.from('shoplist').insert(newItem);
+
+        // Reload the shopping list after insertion
+        await _loadShoppingList();
+      } else {
+        throw Exception('User is not authenticated');
+      }
     } catch (e) {
       print('Error adding item: $e');
       ScaffoldMessenger.of(context).showSnackBar(
@@ -130,6 +159,13 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
                             'Total: \$${checkout['total_amount'].toStringAsFixed(2)}'),
                         trailing: Icon(Icons.arrow_forward_ios),
                         onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => CheckoutDetailScreen(
+                                checkoutData: checkout,
+                              ),
+                            ),
+                          );
                           // TODO: Navigate to a detailed view of this checkout
                         },
                       )),
