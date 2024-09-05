@@ -30,7 +30,7 @@ class _FeatureUpvotePageState extends State<FeatureUpvotePage> {
       appBar: AppBar(
         title: Text('Feature Upvote'),
       ),
-      child: ListView.builder(
+      children: ListView.builder(
         itemCount: features.length,
         itemBuilder: (context, index) {
           return Card(

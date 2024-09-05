@@ -110,7 +110,7 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
         onPressed: _showAddItemScreen,
         child: Icon(Icons.add),
       ),
-      child: Column(
+      children: Column(
         children: [
           Expanded(
             child: ListView(
@@ -137,8 +137,25 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
                 ],
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Current Shopping List',
+                  child: Card(
+                    margin: EdgeInsets.all(10.0),
+                    color: Colors.black,
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.list_alt_outlined,
+                        color: Colors.white,
+                      ),
+                      title: Text(
+                        'Current Shopping List',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Click the plus button to create one',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   ),
                 ),
                 ..._shoppingList.map((item) => ListTile(

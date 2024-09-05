@@ -4,11 +4,14 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class BaseLayout extends StatefulWidget {
   final PreferredSizeWidget? appBar;
   final Widget? body;
-  final Widget child;
+  final Widget children;
   final Widget? floatingActionButton;
 
   BaseLayout(
-      {this.appBar, this.body, required this.child, this.floatingActionButton});
+      {this.appBar,
+      this.body,
+      required this.children,
+      this.floatingActionButton});
 
   @override
   _BaseLayoutState createState() => _BaseLayoutState();
@@ -84,7 +87,7 @@ class _BaseLayoutState extends State<BaseLayout> {
         ),
       ),
       appBar: widget.appBar,
-      body: widget.child,
+      body: widget.children,
       floatingActionButton: widget.floatingActionButton,
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

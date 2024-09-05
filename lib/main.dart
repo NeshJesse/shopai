@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:shopai/screens/shopping.dart';
 import 'package:shopai/screens/features.dart';
 import 'package:shopai/baselayout.dart';
 import 'package:shopai/screens/splash.dart';
 import 'package:shopai/screens/account.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:shopai/screens/planlist.dart';
+import 'package:shopai/screens/alerts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -97,18 +100,83 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: Text('SakaPrice'),
       ),
-      child: Center(
-        child: ListView(
+      children: Center(
+        child: Column(
           children: [
-            ListTile(
-              leading:
-                  Icon(Icons.account_circle, size: 50, color: Colors.white),
-              title: Text(_username ?? 'Loading...'),
-              subtitle: Text(_email ?? 'Loading...'),
-              tileColor: Colors.lightBlueAccent,
-              textColor: Colors.white,
+            Text(
+              "Utilities",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w200,
+                color: Colors.black,
+              ),
             ),
-            // Add other widgets here as needed
+
+            Card(
+              margin: EdgeInsets.all(10.0),
+              color: Colors.black,
+              child: ListTile(
+                leading: Icon(
+                  Icons.shopping_cart_outlined,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Shopping Budget Planner',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                subtitle: Text(
+                  'See the prices of your monthly items',
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 240, 232, 232),
+                  ),
+                ),
+                trailing: IconButton(
+                  icon: Icon(Icons.arrow_circle_right_outlined),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlanListScreen()),
+                    );
+                  },
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.all(10.0),
+              color: const Color.fromARGB(255, 36, 30, 30),
+              child: ListTile(
+                leading: Icon(
+                  Icons.notification_important_outlined,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Set Notifications',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                subtitle: Text(
+                  'Set notifications for product deal alerts',
+                  style: TextStyle(
+                    color: const Color.fromARGB(255, 240, 232, 232),
+                  ),
+                ),
+                trailing: IconButton(
+                  icon: Icon(Icons.arrow_circle_right_outlined),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AlertsScreen()),
+                    );
+                  },
+                  color: Colors.white,
+                ),
+              ),
+            ), // // Add other widgets here as needed
           ],
         ),
       ),

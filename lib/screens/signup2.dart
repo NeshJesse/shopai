@@ -132,6 +132,27 @@ class _SignupPageState extends State<SignupPage> {
                 ),
                 child: Text('Login Instead'),
               ),
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainPage()),
+                  );
+                  // Implement email/password signup logic here
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                  textStyle: TextStyle(
+                    fontSize: 18,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+                child: Text('Skip'),
+              ),
             ],
           ),
         ),

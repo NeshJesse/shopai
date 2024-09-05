@@ -58,7 +58,7 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
         onPressed: _showAddItemScreen,
         child: Icon(Icons.add),
       ),
-      child: Column(
+      children: Column(
         children: [
           Expanded(
             child: ListView.builder(

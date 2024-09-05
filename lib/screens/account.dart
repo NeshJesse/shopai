@@ -71,7 +71,7 @@ class _UserBioPageState extends State<UserBioPage> {
       appBar: AppBar(
         title: Text('User Bio'),
       ),
-      child: SingleChildScrollView(
+      children: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
