@@ -143,6 +143,21 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
       ),
       children: Column(
         children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: _shoppingList.length,
+              itemBuilder: (context, index) {
+                final item = _shoppingList[index];
+                return ListTile(
+                  leading: Icon(Icons.shopping_bag),
+                  title: Text(item['product']),
+                  subtitle: Text(
+                      'Brand: ${item['brand']}, Quantity: ${item['qt']}, Supermarket: ${item['supermarket']}'),
+                  // You might want to add a price field to your database if it's relevant
+                );
+              },
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Card(
