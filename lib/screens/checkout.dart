@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'package:shopai/screens/finish.dart';
 
 class CheckoutDetailScreen extends StatelessWidget {
   final Map<String, dynamic> checkoutData;
@@ -56,7 +57,13 @@ class CheckoutDetailScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CheckoutQRCodeScreen()),
+                  );
+                },
                 child: Text('Proceed'),
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 50),

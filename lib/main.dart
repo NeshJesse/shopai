@@ -98,11 +98,55 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return BaseLayout(
       appBar: AppBar(
+        elevation: 3.0,
         title: Text('QuickShopa'),
       ),
       children: Center(
-        child: Column(
+        child: ListView(
           children: [
+            Spacer(),
+            Container(
+              child: Image.asset(
+                'assets/shopping.jpeg',
+                fit: BoxFit.cover,
+                height: 160,
+              ),
+            ),
+
+            Card(
+              margin: EdgeInsets.all(10.0),
+              color: Colors.purpleAccent,
+              child: ListTile(
+                leading: Icon(
+                  Icons.shopping_cart_outlined,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Quick Shopping',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                subtitle: Text(
+                  'Enter your shopping list & shop',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                trailing: IconButton(
+                  icon: Icon(Icons.arrow_circle_right_outlined),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ShoppingListScreen()),
+                    );
+                  },
+                  color: Colors.white,
+                ),
+              ),
+            ),
+
             Text(
               "Utilities",
               textAlign: TextAlign.center,
@@ -118,7 +162,7 @@ class _MainPageState extends State<MainPage> {
               color: Colors.black,
               child: ListTile(
                 leading: Icon(
-                  Icons.shopping_cart_outlined,
+                  Icons.calendar_month_rounded,
                   color: Colors.white,
                 ),
                 title: Text(
@@ -177,6 +221,7 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
             ), // // Add other widgets here as needed
+            Spacer(),
           ],
         ),
       ),

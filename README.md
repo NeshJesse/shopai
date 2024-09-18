@@ -28,3 +28,23 @@ The app aims to be a shopping ai agent that can order stuff on ur behalf in the 
 2. UPLOAD UR SHOPPING LIST'
 3. CHECKOUT
 4. PRESENT THE GENERATED PROOF OF ORDER TO THE SHOPPING PERSONEL AT THE SUPERMARKET
+            GridView.count(
+              crossAxisCount: 1,
+              crossAxisSpacing: 10,
+              padding: const EdgeInsets.all(18),
+              mainAxisSpacing: 10,
+              primary: false,
+              children: <Widget>[
+                Container(
+                  child: Text(
+                    "Utilities",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w200,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),

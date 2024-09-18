@@ -44,34 +44,13 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
     });
   }
 
-  /*
   Future<void> _addItem(Map<String, dynamic> newItem) async {
     try {
-      // Get the current user's ID
-    final user = _supabase.auth.currentUser;
-      await _supabase.from('shoplist').insert(newItem);
-      await _loadShoppingList();
-    } catch (e) {
-      print('Error adding item: $e');
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error adding item. Please try again.')),
-      );
-    }
-  }
-   */
-  Future<void> _addItem(Map<String, dynamic> newItem) async {
-    try {
-      // Get the current user's ID
       final user = _supabase.auth.currentUser;
 
       if (user != null) {
-        // Add user_id to the new item data
         newItem['user_id'] = user.id;
-
-        // Insert the new item with the user_id into the shoplist table
         await _supabase.from('shoplist').insert(newItem);
-
-        // Reload the shopping list after insertion
         await _loadShoppingList();
       } else {
         throw Exception('User is not authenticated');
@@ -93,6 +72,13 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
     }
 
     try {
+      // Get the current user
+      final user = _supabase.auth.currentUser;
+
+      if (user == null) {
+        throw Exception('User is not authenticated');
+      }
+
       // Calculate total amount
       double totalAmount =
           _shoppingList.fold(0, (sum, item) => sum + (item['price'] ?? 0));
@@ -102,13 +88,18 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
         'checkout_date': DateTime.now().toIso8601String(),
         'total_amount': totalAmount,
         'items': json.encode(_shoppingList),
+        'user_id': user.id, // Add the user_id to the checkout data
       };
 
       // Insert into checkout database
       await _supabase.from('checkout').insert(checkoutData);
 
-      // Refresh checkout history
+      // Clear the shopping list
+      await _supabase.from('shoplist').delete().eq('user_id', user.id);
+
+      // Refresh checkout history and shopping list
       await _loadCheckoutHistory();
+      await _loadShoppingList();
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Checkout successful!')),
